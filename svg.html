@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced SVG Presentation</title>
+    <link rel="stylesheet" href="svgstyle.css">
+</head>
+<body>
+    <header>
+        <h1>SVG</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="svg.html">SVG</a></li>
+                <li><a href="visualisation.html">Visualisation</a></li>
+                <li><a href="credits.html">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="svg-container">
+    <svg style="background:#8D94BA;" width="400" height="200" xmlns="http://www.w3.org/2000/svg" id="animatedSVG">
+        <circle cx="50" cy="50" r="20" fill="red">
+            <animate attributeName="cx" from="50" to="350" dur="3s" repeatCount="indefinite" />
+        </circle>
+        
+        
+        <rect x="170" y="50" width="60" height="60" fill="green">
+            <animate attributeName="y" from="50" to="150" dur="5s" repeatCount="indefinite" />
+        </rect>
+        
+        
+        <polygon points="320,50 290,100 350,100" fill="blue">
+            <animate attributeName="opacity" from="0.1" to="1" dur="2s" repeatCount="indefinite" />
+        </polygon>
+    </svg>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const svgElement = document.getElementById('animatedSVG');
+        let isPaused = false;
+        svgElement.addEventListener('click', function() {
+            if (isPaused) {
+                svgElement.unpauseAnimations();
+            } else {
+                svgElement.pauseAnimations();
+            }
+            isPaused = !isPaused;
+        });
+    });
+</script>
+
+</body>
+</html>
